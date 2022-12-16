@@ -1,0 +1,25 @@
+{
+  "name": "argo_challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devserver": "npm-run-all --parallel live-server nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bol2riZH/Argo_tech_challenge.git"
+  },
+  "author": "Matthieu REUNGOAT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bol2riZH/Argo_tech_challenge/issues"
+  },
+  "homepage": "https://github.com/Bol2riZH/Argo_tech_challenge#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}

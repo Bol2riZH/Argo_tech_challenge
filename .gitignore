@@ -1,2 +1,8 @@
-/node_modules
 .idea
+/node_modules
+
+#FRONT END
+frontend/node_modules
+
+#BACK END
+backend/node_modules
