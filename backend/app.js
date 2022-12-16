@@ -6,8 +6,8 @@ const app = express();
 
 app.use(express.json());
 
-const crewRoutes = require('routes/crew');
+const crewRoutes = require('./routes/crew');
 
-app.use('/api/', crewRoutes);
+app.use('/', crewRoutes);
 
 module.exports = app;
