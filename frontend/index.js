@@ -2,19 +2,21 @@
 
 const baseUrl = `http://localhost:3000`;
 
-const input = document.querySelector('.input-name');
+const inputName = document.querySelector('.input-name');
+const inputAdj = document.querySelector('.input-adj');
 const error = document.querySelector('.error');
-
 const addBtn = document.querySelector('.btn');
 const deleteBtn = document.querySelector('.delete-btn');
-
 const crewMembersList = document.querySelector('.member-list');
 
 const getCrewMembers = async () => {
   try {
     const res = await axios.get(baseUrl);
     res.data.crewsMembers.forEach((crewMember) => {
-      const html = `<div class="member-item">${crewMember.name}</div>`;
+      const html = `<div class="member-item">${crewMember.name}${
+        crewMember.description && `, ${crewMember.description}`
+      }</div>`;
+
       crewMembersList.insertAdjacentHTML('afterbegin', html);
     });
   } catch (err) {
@@ -22,12 +24,15 @@ const getCrewMembers = async () => {
   }
 };
 
-const addCrewMember = async (crewMemberName) => {
+const addCrewMember = async (crewMemberName, crewMemberDescription) => {
   if (crewMemberName) {
     try {
       await axios.post(
         baseUrl,
-        { name: crewMemberName },
+        {
+          name: crewMemberName,
+          description: crewMemberDescription && crewMemberDescription,
+        },
         {
           headers: {
             'content-type': 'application/json',
@@ -55,7 +60,7 @@ getCrewMembers();
 
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  addCrewMember(input.value);
+  addCrewMember(inputName.value, inputAdj?.value);
 });
 
 deleteBtn.addEventListener('click', () => {

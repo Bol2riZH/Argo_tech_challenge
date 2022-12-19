@@ -5,6 +5,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const crewSchema = mongoose.Schema({
   name: { type: String, required: true, unique: true },
+  description: { type: String },
 });
 
 crewSchema.plugin(uniqueValidator);
