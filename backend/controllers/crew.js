@@ -14,7 +14,7 @@ exports.getAll = async (req, res) => {
   }
 };
 
-// add a new crew member
+// create a crew member
 exports.addCrewMember = async (req, res) => {
   try {
     const crewMember = new Crew({

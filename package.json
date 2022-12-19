@@ -2,10 +2,8 @@
   "name": "argo_challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "devserver": "npm-run-all --parallel live-server nodemon"
-  },
+  "main": "index.html",
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bol2riZH/Argo_tech_challenge.git"
@@ -16,9 +14,6 @@
     "url": "https://github.com/Bol2riZH/Argo_tech_challenge/issues"
   },
   "homepage": "https://github.com/Bol2riZH/Argo_tech_challenge#readme",
-  "devDependencies": {
-    "npm-run-all": "^4.1.5"
-  },
   "prettier": {
     "singleQuote": true
   }
