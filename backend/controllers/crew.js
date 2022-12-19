@@ -9,7 +9,7 @@ exports.getAll = async (req, res) => {
     if (!crewsMembers)
       return res.status(404).json({ message: 'No crew member found' });
     return res.status(200).json({ message: 'Crew: ', crewsMembers });
-  } catch (e) {
+  } catch (err) {
     return res.status(500).json({ message: 'internal server error' });
   }
 };
@@ -24,7 +24,19 @@ exports.addCrewMember = async (req, res) => {
     return res
       .status(200)
       .json({ status: 'success', message: 'Crew member added!', crewMember });
-  } catch (e) {
-    return res.status(400).json({ message: 'This Crew member already in !' });
+  } catch (err) {
+    return res.status(400).json({ err });
+  }
+};
+
+// remove all crews member
+exports.removeCrewMember = async (req, res) => {
+  try {
+    await Crew.deleteMany({});
+    return res
+      .status(200)
+      .json({ status: 'success', message: 'All crew members are gone' });
+  } catch (err) {
+    return res.status(400).json({ err });
   }
 };

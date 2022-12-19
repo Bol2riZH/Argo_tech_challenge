@@ -1,38 +1,63 @@
 'use strict';
 
-const btn = document.querySelector('.btn');
+const baseUrl = `http://localhost:3000`;
+
 const input = document.querySelector('.input-name');
+const error = document.querySelector('.error');
+
+const addBtn = document.querySelector('.btn');
+const deleteBtn = document.querySelector('.delete-btn');
+
 const crewMembersList = document.querySelector('.member-list');
 
 const getCrewMembers = async () => {
   try {
-    const res = await axios.get('http://localhost:3000');
-    res.data.crewsMembers.map((crewMember) => {
+    const res = await axios.get(baseUrl);
+    res.data.crewsMembers.forEach((crewMember) => {
       const html = `<div class="member-item">${crewMember.name}</div>`;
-      crewMembersList.insertAdjacentHTML('beforeend', html);
+      crewMembersList.insertAdjacentHTML('afterbegin', html);
     });
   } catch (err) {
     console.error(err);
   }
 };
 
-const addCrewMember = async (memberName) => {
-  try {
-    const res = await axios.post('http://localhost:3000', memberName, {
-      headers: {
-        'content-type': 'application/json',
-      },
-    });
-    console.log(res);
-  } catch (err) {
-    console.error(`ERROR: ${err}`);
+const addCrewMember = async (crewMemberName) => {
+  if (crewMemberName) {
+    try {
+      await axios.post(
+        baseUrl,
+        { name: crewMemberName },
+        {
+          headers: {
+            'content-type': 'application/json',
+          },
+        }
+      );
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+    }
+  } else {
+    error.innerHTML = `<p>Veuillez renseigner le nom de l'Argonaute</p>`;
   }
 };
 
-btn.addEventListener('click', (e) => {
+const removeAllCrewMembers = () => {
+  try {
+    const res = axios.delete(baseUrl);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+getCrewMembers();
+
+addBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log(input.value);
   addCrewMember(input.value);
 });
 
-getCrewMembers();
+deleteBtn.addEventListener('click', () => {
+  removeAllCrewMembers();
+});
