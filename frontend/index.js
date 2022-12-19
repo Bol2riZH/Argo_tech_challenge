@@ -13,9 +13,12 @@ const getCrewMembers = async () => {
   try {
     const res = await axios.get(baseUrl);
     res.data.crewsMembers.forEach((crewMember) => {
-      const html = `<div class="member-item">${crewMember.name}${
-        crewMember.description && `, ${crewMember.description}`
-      }</div>`;
+      const html = `<div class="member-item">
+<p class="member-name">${crewMember.name}</p>
+<p class="member-description">${
+        crewMember.description &&
+        `<span class="member-item-label">Description :</span> ${crewMember.description}`
+      }</p>`;
 
       crewMembersList.insertAdjacentHTML('afterbegin', html);
     });
@@ -44,7 +47,7 @@ const addCrewMember = async (crewMemberName, crewMemberDescription) => {
       console.error(err);
     }
   } else {
-    error.innerHTML = `<p>Veuillez renseigner le nom de l'Argonaute</p>`;
+    error.innerHTML = `<p class="error">Veuillez renseigner le nom de l'Argonaute</p>`;
   }
 };
 

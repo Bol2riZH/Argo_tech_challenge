@@ -31,16 +31,106 @@ h2 {
 
 label {
   display: block;
-  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.label-description {
+  margin-top: 1em;
+}
+
+::selection {
+  background-color: #f76c6c;
+  color: white;
 }
 
 .new-member-form {
-  margin: 2em 0 4em 0;
-  text-align: center;
+  border: 0.3em solid #f76c6c;
+  padding: 2em;
+  margin: 2em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3em;
+}
+
+.input-name,
+.input-adj {
+  padding: 1em;
+  border: 0.2em solid rgba(247, 108, 108, 0.3);
+  border-radius: 0.3em;
+}
+
+input:focus {
+  outline: #f76c6c;
+  border: 0.2em solid #f76c6c;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 1em;
+  font-size: 1em;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.btn-container {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.btn {
+  color: white;
+  background-color: #f76c6c;
+  transition: all 100ms;
+}
+
+.btn:hover {
+  border-radius: 1.2em;
+  scale: 1.08;
+}
+
+.delete-btn {
+  color: #f76c6c;
+  text-decoration: underline;
+  transition: all 200ms;
+}
+
+.delete-btn:hover {
+  scale: 1.1;
+}
+
+.member-list {
+  margin: 0 2em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 3em;
+  grid-row-gap: 3em;
 }
 
 .member-item {
-  padding: 0.25em 0;
+  text-align: center;
+  padding: 0.25em 1em;
+  height: 8em;
+  background-color: rgb(247, 108, 108);
+  color: white;
+  border-radius: 0.2em;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+  transition: all 200ms;
+}
+
+.member-item:hover {
+  scale: 1.05;
+  box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.2);
+}
+
+.member-item-label {
+  text-decoration: underline;
 }
 
 footer {
@@ -49,4 +139,8 @@ footer {
   color: #fff;
   background: #f76c6c;
   padding: 0.25em 0;
+}
+
+.error {
+  color: red;
 }

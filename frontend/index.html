@@ -24,7 +24,8 @@
       <!-- New member form -->
       <h2>Ajouter un(e) Argonaute</h2>
       <form class="new-member-form">
-        <label for="name">Nom de l&apos;Argonaute</label>
+        <label for="name" class="label-name">Nom de l&apos;Argonaute</label>
+        <div class="error"></div>
         <input
           id="name"
           name="name"
@@ -32,7 +33,7 @@
           placeholder="Charalampos"
           class="input-name"
         />
-        <label for="description">Description</label>
+        <label for="description" class="label-description">Description</label>
         <input
           id="description"
           name="description"
@@ -40,11 +41,12 @@
           placeholder="Fort, petit ?"
           class="input-adj"
         />
-        <div class="error"></div>
-        <button type="submit" class="btn">
-          Ajouter un membre à l'expédition
-        </button>
-        <button class="delete-btn">Renvoyer les Argonautes chez eux !</button>
+        <div class="btn-container">
+          <button type="submit" class="btn">
+            Ajouter un membre à l'expédition
+          </button>
+          <button class="delete-btn">Renvoyer les Argonautes chez eux !</button>
+        </div>
       </form>
 
       <!-- Member list -->
